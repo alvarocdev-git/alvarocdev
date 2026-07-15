@@ -30,8 +30,7 @@ jobs:
         run: |
           list() {
             echo "== $1"
-            curl -sS --ssl-reqd --list-only "ftp://$FTP_SERVER/$1" --user "$FTP_USERNAME:$FTP_PASSWORD"
-            echo "   (exit: $?)"
+            curl -ksS --ssl-reqd --list-only "ftp://$FTP_SERVER/$1" --user "$FTP_USERNAME:$FTP_PASSWORD" || echo "   (exit: $?)"
           }
           list ""
           list "domains/"
