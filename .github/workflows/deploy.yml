@@ -21,7 +21,8 @@ jobs:
       - run: npm run build
 
       # Paso temporal: muestra la raíz del FTP para confirmar a qué cuenta
-      # entra. La correcta muestra: nexo, public_html, DO_NOT_UPLOAD_HERE.
+      # entra. La cuenta "deploy" entra directo al docroot: debe verse el
+      # symlink nexolinks (y los archivos del sitio tras el primer deploy).
       - name: Verificar cuenta FTP (debug)
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
@@ -30,10 +31,10 @@ jobs:
         run: |
           curl -ksS --ssl-reqd --list-only "ftp://$FTP_SERVER/" --user "$FTP_USERNAME:$FTP_PASSWORD" || echo "(exit: $?)"
 
-      # Credenciales: las de hPanel → Sitios web → alvarocdev.com →
-      # Archivos → Cuentas FTP (usuario u827592577). Esa cuenta entra en la
-      # raíz del dominio, donde vive public_html/. No usar clean-slate:
-      # en public_html conviven el symlink nexolinks y otros despliegues.
+      # Credenciales: cuenta FTP dedicada "deploy" creada en hPanel →
+      # alvarocdev.com → Cuentas FTP, con directorio fijado al public_html
+      # del dominio: entra parada en el docroot, por eso server-dir es "./".
+      # No usar clean-slate: en public_html convive el symlink nexolinks.
       - name: Subir dist/ por FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -42,4 +43,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           local-dir: dist/
-          server-dir: public_html/
+          server-dir: ./
