@@ -20,6 +20,16 @@ jobs:
 
       - run: npm run build
 
+      # Paso temporal: muestra la raíz del FTP para confirmar a qué cuenta
+      # entra. La correcta muestra: nexo, public_html, DO_NOT_UPLOAD_HERE.
+      - name: Verificar cuenta FTP (debug)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          curl -ksS --ssl-reqd --list-only "ftp://$FTP_SERVER/" --user "$FTP_USERNAME:$FTP_PASSWORD" || echo "(exit: $?)"
+
       # Credenciales: las de hPanel → Sitios web → alvarocdev.com →
       # Archivos → Cuentas FTP (usuario u827592577). Esa cuenta entra en la
       # raíz del dominio, donde vive public_html/. No usar clean-slate:
