@@ -21,8 +21,8 @@ jobs:
       - run: npm run build
 
       # Si la conexión falla con "ftps", cambiar protocol a "ftp".
-      # server-dir asume que la cuenta FTP apunta a la raíz del dominio,
-      # donde vive public_html/.
+      # La cuenta FTP de Hostinger entra en el home de la cuenta, no en el
+      # del dominio: la web vive en domains/<dominio>/public_html/.
       - name: Subir dist/ por FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -31,4 +31,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           local-dir: dist/
-          server-dir: public_html/
+          server-dir: domains/alvarocdev.com/public_html/
