@@ -20,17 +20,6 @@ jobs:
 
       - run: npm run build
 
-      # Paso temporal: muestra la raíz del FTP para confirmar a qué cuenta
-      # entra. La cuenta "deploy" entra directo al docroot: debe verse el
-      # symlink nexolinks (y los archivos del sitio tras el primer deploy).
-      - name: Verificar cuenta FTP (debug)
-        env:
-          FTP_SERVER: ${{ secrets.FTP_SERVER }}
-          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          curl -ksS --ssl-reqd --list-only "ftp://$FTP_SERVER/" --user "$FTP_USERNAME:$FTP_PASSWORD" || echo "(exit: $?)"
-
       # Credenciales: cuenta FTP dedicada "deploy" creada en hPanel →
       # alvarocdev.com → Cuentas FTP, con directorio fijado al public_html
       # del dominio: entra parada en el docroot, por eso server-dir es "./".
