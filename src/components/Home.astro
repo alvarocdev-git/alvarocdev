@@ -1,0 +1,476 @@
+---
+import Base from '../layouts/Base.astro';
+import { translations, site, type Locale } from '../i18n/translations';
+
+interface Props {
+  lang: Locale;
+}
+
+const { lang } = Astro.props;
+const t = translations[lang];
+const stack = ['PHP', 'Laravel', 'MySQL', 'Docker', 'Kubernetes', 'AWS', 'REST APIs'];
+const year = new Date().getFullYear();
+
+// Cambiar a true cuando estén listos los casos de estudio de clientes
+// (completar antes los textos en src/i18n/translations.ts).
+const showClientWork = false;
+---
+
+<Base lang={lang} title={t.metaTitle} description={t.metaDescription}>
+  <header class="topbar">
+    <nav class="container topbar-inner" aria-label="main">
+      <a href={site.localePaths[lang]} class="brand">alvarocdev<span class="cursor">_</span></a>
+      <div class="nav-links">
+        <a href="#sobre-mi">{t.nav.about}</a>
+        <a href="#productos">{t.nav.products}</a>
+        {showClientWork && <a href="#clientes">{t.nav.work}</a>}
+        <a href="#contacto">{t.nav.contact}</a>
+      </div>
+      <div class="lang-switch" aria-label="language">
+        {
+          (Object.entries(site.localePaths) as [Locale, string][]).map(([code, path]) => (
+            <a href={path} class:list={[{ active: code === lang }]} aria-current={code === lang ? 'page' : undefined}>
+              {code}
+            </a>
+          ))
+        }
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="kicker">{t.hero.kicker}</p>
+      <h1>{t.hero.title}</h1>
+      <p class="subtitle">{t.hero.subtitle}</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#productos">{t.hero.ctaProjects}</a>
+        <a class="btn" href="#contacto">{t.hero.ctaContact}</a>
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <p class="section-label">// {t.about.label}</p>
+      <h2>{t.about.title}</h2>
+      {t.about.paragraphs.map((p) => <p class="prose">{p}</p>)}
+      <div class="facts">
+        <div>
+          <p class="fact-label">{t.about.stackLabel}</p>
+          <ul class="tags">
+            {stack.map((s) => <li>{s}</li>)}
+          </ul>
+        </div>
+        <div>
+          <p class="fact-label">{t.about.languagesLabel}</p>
+          <p class="fact-value">{t.about.languages}</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="productos">
+      <p class="section-label">// {t.products.label}</p>
+      <h2>{t.products.title}</h2>
+      <p class="prose muted">{t.products.intro}</p>
+      <div class="cards">
+        {
+          t.products.items.map((item) => (
+            <article class="card">
+              <div class="card-head">
+                <h3>{item.name}</h3>
+                <span class="status">{t.products.statusWip}</span>
+              </div>
+              <p>{item.description}</p>
+              <ul class="tags">
+                {item.tags.map((tag) => <li>{tag}</li>)}
+              </ul>
+              {item.repo && (
+                <a class="card-link" href={item.repo} target="_blank" rel="noopener noreferrer">
+                  {t.products.viewCode} →
+                </a>
+              )}
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    {showClientWork && (
+    <section id="clientes">
+      <p class="section-label">// {t.work.label}</p>
+      <h2>{t.work.title}</h2>
+      <p class="prose muted">{t.work.intro}</p>
+      <div class="cards">
+        <!-- TODO(alvaro): reemplazar estos placeholders con casos reales:
+             nombre del cliente/proyecto, problema, solución, resultado y link.
+             Recordar pedir permiso al cliente antes de publicar su marca. -->
+        {
+          [1, 2].map(() => (
+            <article class="card card-placeholder">
+              <div class="card-head">
+                <h3>{t.work.placeholderTitle}</h3>
+              </div>
+              <p>{t.work.placeholderText}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+    )}
+
+    <section id="contacto">
+      <p class="section-label">// {t.contact.label}</p>
+      <h2>{t.contact.title}</h2>
+      <p class="prose">{t.contact.text}</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href={`mailto:${site.email}`}>{t.contact.emailCta}</a>
+        <a class="btn" href={site.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn" href={site.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+      <p class="email-plain"><code>{site.email}</code></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© {year} Alvaro Carrizales · alvarocdev</p>
+      <p class="muted">{t.footer.madeWith}</p>
+    </div>
+  </footer>
+</Base>
+
+<style>
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* --- top bar --- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    height: 3.75rem;
+  }
+
+  .brand {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--text);
+    font-size: 1rem;
+  }
+
+  .brand:hover {
+    text-decoration: none;
+  }
+
+  .cursor {
+    color: var(--accent);
+    animation: blink 1.2s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor {
+      animation: none;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.25rem;
+    margin-left: auto;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .nav-links a:hover {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .lang-switch {
+    display: flex;
+    gap: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+
+  .lang-switch a {
+    color: var(--muted);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+  }
+
+  .lang-switch a.active {
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .lang-switch a:hover {
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  @media (max-width: 640px) {
+    .nav-links {
+      display: none;
+    }
+    .lang-switch {
+      margin-left: auto;
+    }
+  }
+
+  /* --- sections --- */
+  section {
+    padding: 4.5rem 0 1rem;
+  }
+
+  .hero {
+    padding: 6.5rem 0 3rem;
+  }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.1rem, 6vw, 3.2rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: var(--muted);
+    max-width: 34em;
+    margin-bottom: 2rem;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.25rem;
+  }
+
+  .prose {
+    margin-bottom: 1rem;
+    max-width: 40em;
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+
+  /* --- about facts --- */
+  .facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-raise);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+
+  @media (max-width: 640px) {
+    .facts {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .fact-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .fact-value {
+    font-size: 0.95rem;
+  }
+
+  /* --- cards --- */
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: var(--bg-raise);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.2s ease;
+  }
+
+  .card:hover {
+    border-color: var(--accent);
+  }
+
+  .card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    flex-grow: 1;
+  }
+
+  .card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .card h3 {
+    font-size: 1.15rem;
+  }
+
+  .status {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 0.2rem 0.5rem;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+
+  .card-link {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+  }
+
+  .card-placeholder {
+    border-style: dashed;
+  }
+
+  .card-placeholder:hover {
+    border-color: var(--border);
+  }
+
+  .card-placeholder h3 {
+    color: var(--muted);
+  }
+
+  /* --- tags --- */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+  }
+
+  .tags li {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 0.15rem 0.5rem;
+    border-radius: 99px;
+  }
+
+  /* --- buttons --- */
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .btn:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+
+  .btn-primary:hover {
+    background: color-mix(in srgb, var(--accent) 85%, white);
+  }
+
+  .email-plain {
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .email-plain code {
+    font-family: var(--font-mono);
+  }
+
+  /* --- footer --- */
+  footer {
+    margin-top: 5rem;
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    font-size: 0.85rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+</style>

@@ -1,0 +1,88 @@
+---
+import { site, type Locale } from '../i18n/translations';
+
+interface Props {
+  lang: Locale;
+  title: string;
+  description: string;
+}
+
+const { lang, title, description } = Astro.props;
+const canonical = new URL(site.localePaths[lang], Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {
+      (Object.entries(site.localePaths) as [Locale, string][]).map(([code, path]) => (
+        <link rel="alternate" hreflang={code} href={new URL(path, Astro.site)} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #0b0f14;
+    --bg-raise: #10161e;
+    --border: #1e2a36;
+    --text: #e6edf3;
+    --muted: #8b98a5;
+    --accent: #4ade80;
+    --accent-dim: rgba(74, 222, 128, 0.12);
+    --font-sans:
+      system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>
