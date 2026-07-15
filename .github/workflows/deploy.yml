@@ -20,6 +20,23 @@ jobs:
 
       - run: npm run build
 
+      # Paso temporal de diagnóstico: lista la estructura del FTP para
+      # confirmar dónde vive public_html. Borrar cuando el deploy funcione.
+      - name: Listar estructura FTP (debug)
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          echo "== raíz:"
+          curl -s --ssl-reqd "ftp://$FTP_SERVER/" --user "$FTP_USERNAME:$FTP_PASSWORD" || true
+          echo "== domains/:"
+          curl -s --ssl-reqd "ftp://$FTP_SERVER/domains/" --user "$FTP_USERNAME:$FTP_PASSWORD" || true
+          echo "== domains/alvarocdev.com/:"
+          curl -s --ssl-reqd "ftp://$FTP_SERVER/domains/alvarocdev.com/" --user "$FTP_USERNAME:$FTP_PASSWORD" || true
+          echo "== public_html/ (si existe en la raíz):"
+          curl -s --ssl-reqd "ftp://$FTP_SERVER/public_html/" --user "$FTP_USERNAME:$FTP_PASSWORD" || true
+
       # Si la conexión falla con "ftps", cambiar protocol a "ftp".
       # La cuenta FTP de Hostinger entra en el home de la cuenta, no en el
       # del dominio: la web vive en domains/<dominio>/public_html/.
