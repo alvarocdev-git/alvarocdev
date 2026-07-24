@@ -1,6 +1,6 @@
 # alvarocdev.com
 
-Sitio personal de Alvaro Carrizales. Estático, trilingüe (ES/EN/PT), construido con [Astro](https://astro.build). Sin cookies, sin trackers.
+Sitio personal y portafolio técnico de Alvaro Carrizales — la cara técnica del **ecosistema Nexo** (6 herramientas open source). Estático, trilingüe (ES/EN/PT), construido con [Astro](https://astro.build). Sin cookies, sin trackers, sin CDNs. Marca personal en verde (`#4ade80`); el ecosistema Nexo se muestra dentro con su acento violeta y sus isotipos.
 
 ## Comandos
 
@@ -13,14 +13,22 @@ npm run preview  # sirve dist/ localmente para verificar el build
 
 ## Estructura
 
-- `src/i18n/translations.ts` — **todo el contenido del sitio** en los 3 idiomas, más email y links sociales. Para cambiar textos, editar solo este archivo.
+- `src/i18n/translations.ts` — **todo el contenido del sitio** en los 3 idiomas, más email, links sociales y las tarjetas del ecosistema Nexo (`products.items`) y de clientes (`work.clients`). Para cambiar textos, editar solo este archivo.
 - `src/components/Home.astro` — markup y estilos de la página.
-- `src/layouts/Base.astro` — `<head>`, SEO, hreflang y estilos globales (colores en las variables CSS de `:root`).
+- `src/layouts/Base.astro` — `<head>`, SEO, hreflang, tokens de color/tipografía (`:root`) y el beacon opcional.
 - `src/pages/` — una página por idioma: `/` (es), `/en/`, `/pt/`.
+- `public/ecosystem/` — los 7 isotipos Nexo (copiados de `nexo-brand/marks/`). `public/sitemap.xml` y `public/robots.txt` estáticos.
+
+## Env opcional (build-time, solo `PUBLIC_*`)
+
+Todo apagado por default: sin nada seteado, el sitio no envía JS. Plantilla en `.env.example` (el `.env` local está gitignoreado).
+
+- `PUBLIC_NEXO_BEACON_ENABLED` (`false` por default) — beacon de pageview cookieless, opt-in, para el `/admin` de nexotools. Respeta Do Not Track; sin cookies/IP/UA. Si está en `true`, requiere `PUBLIC_NEXO_HUB_URL`.
+- `PUBLIC_NEXO_HUB_URL` — URL base del hub al que se hace `POST /beacon`.
 
 ## Pendientes (TODO)
 
-- Reemplazar los placeholders de "Trabajo para clientes" en `translations.ts` y `Home.astro` con casos reales (problema → solución → resultado). Pedir permiso a cada cliente antes de publicar su marca.
+- Cargar clientes reales en `work.clients` de `translations.ts` (`name`, `tagline`, `url` y, opcional, `problem`/`solution`/`outcome`) y poner `showClientWork = true` en `Home.astro`. Pedir permiso a cada cliente antes de publicar su marca.
 
 ## Deploy a Hostinger
 
