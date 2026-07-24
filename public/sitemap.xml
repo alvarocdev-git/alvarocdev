@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Static sitemap (3 locales). Hand-maintained: this is a single-page site, so
+     add a <url> only if a new route or locale is added. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://alvarocdev.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alvarocdev.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alvarocdev.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://alvarocdev.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alvarocdev.com/"/>
+  </url>
+  <url>
+    <loc>https://alvarocdev.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alvarocdev.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alvarocdev.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://alvarocdev.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alvarocdev.com/"/>
+  </url>
+  <url>
+    <loc>https://alvarocdev.com/pt/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://alvarocdev.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://alvarocdev.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://alvarocdev.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alvarocdev.com/"/>
+  </url>
+</urlset>
