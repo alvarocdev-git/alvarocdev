@@ -12,8 +12,14 @@ const stack = ['PHP', 'Laravel', 'MySQL', 'Docker', 'Kubernetes', 'AWS', 'REST A
 const year = new Date().getFullYear();
 
 // Cambiar a true cuando estén listos los casos de estudio de clientes
-// (completar antes los textos en src/i18n/translations.ts).
+// (completar antes los datos en t.work.clients de src/i18n/translations.ts).
 const showClientWork = false;
+
+// Andamiaje del carrusel de clientes: si no hay clientes reales cargados,
+// se muestran tarjetas placeholder para conservar el patrón visual.
+const clients = t.work.clients;
+const clientPlaceholders = [1, 2, 3];
+const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome);
 ---
 
 <Base lang={lang} title={t.metaTitle} description={t.metaDescription}>
@@ -67,31 +73,58 @@ const showClientWork = false;
       </div>
     </section>
 
-    <section id="productos">
+    <section id="productos" class="ecosystem">
       <p class="section-label">// {t.products.label}</p>
       <h2>{t.products.title}</h2>
-      <p class="prose muted">{t.products.intro}</p>
-      <div class="cards">
+      <div class="eco-intro">
+        <img class="eco-badge" src="/ecosystem/nexo.svg" alt="Nexo" width="32" height="32" decoding="async" />
+        <p class="prose">{t.products.intro}</p>
+      </div>
+      <p class="prose muted eco-opensource">{t.products.openSource}</p>
+
+      <div class="cards eco-cards">
         {
           t.products.items.map((item) => (
-            <article class="card">
-              <div class="card-head">
-                <h3>{item.name}</h3>
-                <span class="status">{t.products.statusWip}</span>
+            <article class="card eco-card">
+              <div class="eco-card-head">
+                <img
+                  class="mark"
+                  src={`/ecosystem/${item.key}.svg`}
+                  alt=""
+                  width="40"
+                  height="40"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="eco-card-title">
+                  <h3>{item.name}</h3>
+                  <span class:list={['status', item.status === 'live' ? 'status-live' : 'status-soon']}>
+                    {item.status === 'live' ? t.products.statusLive : t.products.statusSoon}
+                  </span>
+                </div>
               </div>
               <p>{item.description}</p>
               <ul class="tags">
                 {item.tags.map((tag) => <li>{tag}</li>)}
               </ul>
-              {item.repo && (
-                <a class="card-link" href={item.repo} target="_blank" rel="noopener noreferrer">
-                  {t.products.viewCode} →
+              <div class="card-actions">
+                {item.demo && (
+                  <a class="card-link primary" href={item.demo} target="_blank" rel="noopener noreferrer">
+                    {t.products.viewDemo} →
+                  </a>
+                )}
+                <a class="card-link" href={site.nexoGithubOrg} target="_blank" rel="noopener noreferrer">
+                  {t.products.viewCode}
                 </a>
-              )}
+              </div>
             </article>
           ))
         }
       </div>
+
+      <a class="eco-org-link" href={site.nexoGithubOrg} target="_blank" rel="noopener noreferrer">
+        {t.products.browseOrg} →
+      </a>
     </section>
 
     {showClientWork && (
@@ -99,21 +132,64 @@ const showClientWork = false;
       <p class="section-label">// {t.work.label}</p>
       <h2>{t.work.title}</h2>
       <p class="prose muted">{t.work.intro}</p>
-      <div class="cards">
-        <!-- TODO(alvaro): reemplazar estos placeholders con casos reales:
-             nombre del cliente/proyecto, problema, solución, resultado y link.
-             Recordar pedir permiso al cliente antes de publicar su marca. -->
+
+      {/*
+        Carrusel de clientes: fila desplazable en horizontal; cada tarjeta
+        enlaza directo al sitio público del cliente. Los datos reales van en
+        t.work.clients (hoy vacío). No inventar clientes: mientras esté vacío
+        se muestran placeholders para conservar el patrón.
+      */}
+      <div class="carousel" role="list" aria-label={t.work.title}>
         {
-          [1, 2].map(() => (
-            <article class="card card-placeholder">
-              <div class="card-head">
-                <h3>{t.work.placeholderTitle}</h3>
-              </div>
-              <p>{t.work.placeholderText}</p>
-            </article>
-          ))
+          clients.length
+            ? clients.map((client) => (
+                <a
+                  class="card client-card"
+                  href={client.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  role="listitem"
+                >
+                  <div class="card-head">
+                    <h3>{client.name}</h3>
+                    <span class="visit-hint">{t.work.visitSite} ↗</span>
+                  </div>
+                  <p>{client.tagline}</p>
+                </a>
+              ))
+            : clientPlaceholders.map(() => (
+                <article class="card client-card card-placeholder" role="listitem">
+                  <div class="card-head">
+                    <h3>{t.work.placeholderTitle}</h3>
+                  </div>
+                  <p>{t.work.placeholderText}</p>
+                </article>
+              ))
         }
       </div>
+
+      {/*
+        Vista de info opcional: una sola sección desplegable (native <details>,
+        sin JS) con los casos de estudio detallados. Solo aparece cuando algún
+        cliente real trae problema/solución/resultado.
+      */}
+      {hasCaseStudies ? (
+        <details class="case-studies">
+          <summary>{t.work.caseStudies}</summary>
+          {clients
+            .filter((c) => c.problem || c.solution || c.outcome)
+            .map((client) => (
+              <article class="case-study">
+                <h3>{client.name}</h3>
+                {client.problem && <p>{client.problem}</p>}
+                {client.solution && <p>{client.solution}</p>}
+                {client.outcome && <p>{client.outcome}</p>}
+              </article>
+            ))}
+        </details>
+      ) : (
+        <p class="prose muted case-empty">{t.work.emptyState}</p>
+      )}
     </section>
     )}
 
@@ -373,8 +449,6 @@ const showClientWork = false;
   .status {
     font-family: var(--font-mono);
     font-size: 0.7rem;
-    color: var(--accent);
-    background: var(--accent-dim);
     padding: 0.2rem 0.5rem;
     border-radius: 99px;
     white-space: nowrap;
@@ -397,6 +471,97 @@ const showClientWork = false;
     color: var(--muted);
   }
 
+  /* --- ecosystem (Nexo — acento violeta dentro del portafolio personal) ---
+     Los tokens --eco* viven en :root (Base.astro); acá solo se consumen, de modo
+     que el violeta es la señal de marca del ecosistema y el verde sigue siendo el
+     acento personal en el resto del sitio. */
+  .ecosystem .section-label {
+    color: var(--eco);
+  }
+
+  .eco-intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  .eco-badge {
+    flex-shrink: 0;
+    border-radius: 8px;
+    margin-top: 0.15rem;
+  }
+
+  .eco-opensource {
+    padding-left: calc(32px + 0.85rem);
+    margin-top: -0.25rem;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 640px) {
+    .eco-opensource {
+      padding-left: 0;
+    }
+  }
+
+  .eco-card:hover {
+    border-color: var(--eco-strong);
+  }
+
+  .eco-card-head {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .mark {
+    flex-shrink: 0;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .eco-card-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 0;
+  }
+
+  .eco-card-title h3 {
+    line-height: 1.2;
+  }
+
+  .status-live {
+    color: var(--eco);
+    background: var(--eco-dim);
+    align-self: flex-start;
+  }
+
+  .status-soon {
+    color: var(--muted);
+    background: color-mix(in srgb, var(--muted) 14%, transparent);
+    align-self: flex-start;
+  }
+
+  .card-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: auto;
+  }
+
+  .card-link.primary {
+    color: var(--eco);
+    font-weight: 600;
+  }
+
+  .eco-org-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--eco);
+  }
+
   /* --- tags --- */
   .tags {
     display: flex;
@@ -412,6 +577,75 @@ const showClientWork = false;
     border: 1px solid var(--border);
     padding: 0.15rem 0.5rem;
     border-radius: 99px;
+  }
+
+  /* --- client carousel (scaffold, currently hidden) --- */
+  .carousel {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    padding-bottom: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel .card {
+    flex: 0 0 clamp(240px, 72vw, 300px);
+    scroll-snap-align: start;
+  }
+
+  .client-card {
+    color: var(--text);
+  }
+
+  a.client-card:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+  }
+
+  .visit-hint {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .case-studies {
+    margin-top: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-raise);
+    padding: 0 1.5rem;
+  }
+
+  .case-studies summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    padding: 1rem 0;
+    color: var(--accent);
+  }
+
+  .case-study {
+    padding: 0.5rem 0 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .case-study h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-study p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-empty {
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
   }
 
   /* --- buttons --- */
