@@ -1,6 +1,21 @@
+<div align="center">
+
 # alvarocdev.com
 
-Sitio personal y portafolio técnico de Alvaro Carrizales — la cara técnica del **ecosistema Nexo** (6 herramientas open source). Estático, trilingüe (ES/EN/PT), construido con [Astro](https://astro.build). Sin cookies, sin trackers, sin CDNs. Marca personal en verde (`#4ade80`); el ecosistema Nexo se muestra dentro con su acento violeta y sus isotipos.
+**Portafolio técnico de Álvaro Carrizales y la cara pública del ecosistema Nexo.**
+
+Backend Tech Lead · Buenos Aires · construyo productos web que resuelven problemas de verdad.
+
+[**alvarocdev.com**](https://alvarocdev.com) · [ecosistema Nexo](https://github.com/nexo-tools)
+
+</div>
+
+---
+
+Sitio personal y portafolio: quién soy, cómo trabajo y las herramientas que construyo
+en abierto. Trilingüe (ES/EN/PT), estático, **sin cookies, sin trackers y sin CDNs** —
+el mismo criterio de privacidad que aplico en todo lo que hago. Mi marca personal es
+verde; el ecosistema Nexo se muestra dentro con su propio acento violeta y sus isotipos.
 
 ## Ecosistema Nexo
 
@@ -18,50 +33,44 @@ ingeniería. Cada herramienta funciona **de forma independiente** — el ecosist
 | **Nexo Events** | Entradas y pases para eventos | [nexo-events](https://github.com/nexo-tools/nexo-events) |
 | **Nexo ID** | Una cuenta para todas las herramientas — SSO OAuth 2.0 / OIDC | [nexo-id](https://github.com/nexo-tools/nexo-id) |
 
-Portada del ecosistema: **[nexotools.alvarocdev.com](https://nexotools.alvarocdev.com)** ·
-org en GitHub: **[github.com/nexo-tools](https://github.com/nexo-tools)**.
+Portada para conocerlas: **[nexotools.alvarocdev.com](https://nexotools.alvarocdev.com)**.
 
-## Comandos
+## Cómo está hecho
+
+[Astro](https://astro.build) · TypeScript · 100% estático · trilingüe con archivo único de
+traducciones · tokens de diseño propios (verde personal + violeta del ecosistema) ·
+cero requests externos. El sitio se despliega como HTML plano en shared hosting.
+
+---
+
+<details>
+<summary><b>Desarrollo local</b> (para mantener el sitio)</summary>
 
 ```bash
-npm install      # instalar dependencias
-npm run dev      # servidor de desarrollo en http://localhost:4321
+npm install      # dependencias
+npm run dev      # http://localhost:4321
 npm run build    # genera el sitio estático en dist/
-npm run preview  # sirve dist/ localmente para verificar el build
+npm run preview  # sirve dist/ para verificar el build
 ```
 
-## Estructura
-
-- `src/i18n/translations.ts` — **todo el contenido del sitio** en los 3 idiomas, más email, links sociales y las tarjetas del ecosistema Nexo (`products.items`) y de clientes (`work.clients`). Para cambiar textos, editar solo este archivo.
+**Dónde tocar qué**
+- `src/i18n/translations.ts` — **todo el contenido** en los 3 idiomas (textos, links sociales, tarjetas del ecosistema y de clientes). Para cambiar textos, editar solo este archivo.
 - `src/components/Home.astro` — markup y estilos de la página.
-- `src/layouts/Base.astro` — `<head>`, SEO, hreflang, tokens de color/tipografía (`:root`) y el beacon opcional.
+- `src/layouts/Base.astro` — `<head>`, SEO, hreflang, tokens de color/tipografía y el beacon opcional.
 - `src/pages/` — una página por idioma: `/` (es), `/en/`, `/pt/`.
-- `public/ecosystem/` — los 7 isotipos Nexo (copiados de `nexo-brand/marks/`). `public/sitemap.xml` y `public/robots.txt` estáticos.
+- `public/ecosystem/` — isotipos Nexo; `public/sitemap.xml` y `public/robots.txt`.
 
-## Env opcional (build-time, solo `PUBLIC_*`)
+**Sección de clientes** (diferida): cargar casos reales en `work.clients` de `translations.ts`
+y poner `showClientWork = true` en `Home.astro`. Pedir permiso a cada cliente antes de publicar su marca.
 
-Todo apagado por default: sin nada seteado, el sitio no envía JS. Plantilla en `.env.example` (el `.env` local está gitignoreado).
+**Env opcional** (build-time, solo `PUBLIC_*`, todo apagado por default → sin JS):
+`PUBLIC_NEXO_BEACON_ENABLED` (beacon de pageview cookieless, opt-in, respeta Do Not Track) +
+`PUBLIC_NEXO_HUB_URL`. Plantilla en `.env.example`.
 
-- `PUBLIC_NEXO_BEACON_ENABLED` (`false` por default) — beacon de pageview cookieless, opt-in, para el `/admin` de nexotools. Respeta Do Not Track; sin cookies/IP/UA. Si está en `true`, requiere `PUBLIC_NEXO_HUB_URL`.
-- `PUBLIC_NEXO_HUB_URL` — URL base del hub al que se hace `POST /beacon`.
+**Deploy**: `npm run build` → subir el **contenido** de `dist/` a `public_html/` (o via GitHub Actions + FTP en cada push a `main`).
 
-## Pendientes (TODO)
+</details>
 
-- Cargar clientes reales en `work.clients` de `translations.ts` (`name`, `tagline`, `url` y, opcional, `problem`/`solution`/`outcome`) y poner `showClientWork = true` en `Home.astro`. Pedir permiso a cada cliente antes de publicar su marca.
+## Licencia
 
-## Deploy a Hostinger
-
-El sitio es 100% estático: lo que hay en `dist/` después de `npm run build` es lo que se sube.
-
-**Opción A — manual (rápida para la primera vez):**
-
-1. `npm run build`
-2. En hPanel → Administrador de archivos (o por FTP), vaciar `public_html/`
-3. Subir el **contenido** de `dist/` (no la carpeta `dist` en sí) a `public_html/`
-
-**Opción B — Git deploy (recomendada a mediano plazo):**
-
-Hostinger puede clonar un repo en cada push (hPanel → Sitios web → Git). Como Hostinger no ejecuta `npm run build`, hay dos variantes:
-
-- Commitear también `dist/` y apuntar el deploy ahí, o
-- Usar GitHub Actions para buildear y subir por FTP (`SamKirkland/FTP-Deploy-Action`) en cada push a `main`.
+Código bajo [MIT](LICENSE). Contenido y marca personal © Álvaro Carrizales.
