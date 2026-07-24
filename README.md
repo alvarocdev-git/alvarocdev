@@ -2,7 +2,7 @@
 
 # alvarocdev.com
 
-**Portafolio técnico de Álvaro Carrizales y la cara pública del ecosistema Nexo.**
+**Portafolio técnico de Alvaro Carrizales y la cara pública del ecosistema Nexo.**
 
 Backend Tech Lead · Buenos Aires · construyo productos web que resuelven problemas de verdad.
 
@@ -73,4 +73,4 @@ y poner `showClientWork = true` en `Home.astro`. Pedir permiso a cada cliente an
 
 ## Licencia
 
-Código bajo [MIT](LICENSE). Contenido y marca personal © Álvaro Carrizales.
+Código bajo [MIT](LICENSE). Contenido y marca personal © Alvaro Carrizales.
