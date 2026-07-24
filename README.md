@@ -2,6 +2,25 @@
 
 Sitio personal y portafolio técnico de Alvaro Carrizales — la cara técnica del **ecosistema Nexo** (6 herramientas open source). Estático, trilingüe (ES/EN/PT), construido con [Astro](https://astro.build). Sin cookies, sin trackers, sin CDNs. Marca personal en verde (`#4ade80`); el ecosistema Nexo se muestra dentro con su acento violeta y sus isotipos.
 
+## Ecosistema Nexo
+
+Nexo es una familia de herramientas open source y self-hostables que comparten una
+identidad visual ([nexo-brand](https://github.com/nexo-tools)), una cuenta opcional
+([Nexo ID](https://github.com/nexo-tools/nexo-id), SSO) y un mismo estándar de
+ingeniería. Cada herramienta funciona **de forma independiente** — el ecosistema es opt-in.
+
+| Herramienta | Qué es | Repo |
+| --- | --- | --- |
+| **Nexo Tools** | Hub del ecosistema — descubrí las herramientas y saltá entre ellas con una cuenta | [nexo-tools](https://github.com/nexo-tools/nexo-tools) |
+| **Nexo Links** | Link-in-bio que hospedás vos (alternativa a Linktree) | [nexo-links](https://github.com/nexo-tools/nexo-links) |
+| **Nexo Agenda** | Reservas para negocios de servicios (alternativa a AgendaPro / Fresha / Booksy) | [nexo-agenda](https://github.com/nexo-tools/nexo-agenda) |
+| **Nexo Short** | Acortador de URLs self-hosted | [nexo-short](https://github.com/nexo-tools/nexo-short) |
+| **Nexo Events** | Entradas y pases para eventos | [nexo-events](https://github.com/nexo-tools/nexo-events) |
+| **Nexo ID** | Una cuenta para todas las herramientas — SSO OAuth 2.0 / OIDC | [nexo-id](https://github.com/nexo-tools/nexo-id) |
+
+Portada del ecosistema: **[nexotools.alvarocdev.com](https://nexotools.alvarocdev.com)** ·
+org en GitHub: **[github.com/nexo-tools](https://github.com/nexo-tools)**.
+
 ## Comandos
 
 ```bash
