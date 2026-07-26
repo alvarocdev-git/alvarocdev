@@ -167,7 +167,8 @@ export const translations: Record<Locale, Translation> = {
           description:
             'Acortador de enlaces con métricas sin cookies ni trackers. Open source para que puedas auditar a dónde apunta cada link.',
           tags: ['Laravel', 'Cookieless', 'Tailwind'],
-          status: 'soon',
+          status: 'live',
+          demo: 'https://nexoshort.alvarocdev.com',
         },
         {
           key: 'nexoevents',
@@ -175,7 +176,8 @@ export const translations: Record<Locale, Translation> = {
           description:
             'Creá eventos gratis y validá entradas con QR desde el móvil. Abierto para que la gestión de tus entradas no viva en una caja negra.',
           tags: ['Laravel', 'QR', 'Tailwind'],
-          status: 'soon',
+          status: 'live',
+          demo: 'https://nexoevents.alvarocdev.com',
         },
       ],
     },
@@ -281,7 +283,8 @@ export const translations: Record<Locale, Translation> = {
           description:
             'A link shortener with cookieless, tracker-free metrics. Open source so you can audit where every link points.',
           tags: ['Laravel', 'Cookieless', 'Tailwind'],
-          status: 'soon',
+          status: 'live',
+          demo: 'https://nexoshort.alvarocdev.com',
         },
         {
           key: 'nexoevents',
@@ -289,7 +292,8 @@ export const translations: Record<Locale, Translation> = {
           description:
             'Create events for free and validate tickets by QR from your phone. Open so your ticketing never lives in a black box.',
           tags: ['Laravel', 'QR', 'Tailwind'],
-          status: 'soon',
+          status: 'live',
+          demo: 'https://nexoevents.alvarocdev.com',
         },
       ],
     },
@@ -395,7 +399,8 @@ export const translations: Record<Locale, Translation> = {
           description:
             'Encurtador de links com métricas sem cookies nem trackers. Open source para você auditar para onde cada link aponta.',
           tags: ['Laravel', 'Cookieless', 'Tailwind'],
-          status: 'soon',
+          status: 'live',
+          demo: 'https://nexoshort.alvarocdev.com',
         },
         {
           key: 'nexoevents',
@@ -403,7 +408,8 @@ export const translations: Record<Locale, Translation> = {
           description:
             'Crie eventos de graça e valide ingressos por QR pelo celular. Aberto para que a gestão dos seus ingressos nunca fique em uma caixa preta.',
           tags: ['Laravel', 'QR', 'Tailwind'],
-          status: 'soon',
+          status: 'live',
+          demo: 'https://nexoevents.alvarocdev.com',
         },
       ],
     },
