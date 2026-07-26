@@ -90,7 +90,7 @@ export const translations: Record<Locale, Translation> = {
     lang: 'es',
     metaTitle: 'Alvaro Carrizales — Backend Tech Lead | alvarocdev',
     metaDescription:
-      'Backend Tech Lead en Buenos Aires. Construyo el ecosistema Nexo: seis herramientas web open source, sin cookies ni trackers (Nexo ID, Links, Agenda, Short, Events y Tools).',
+      'Backend Tech Lead en Buenos Aires. Construyo sistemas y productos web — del backend a la infraestructura.',
     nav: { about: 'Sobre mí', products: 'Ecosistema', work: 'Clientes', contact: 'Contacto' },
     hero: {
       kicker: 'Backend Tech Lead · Buenos Aires',
@@ -204,7 +204,7 @@ export const translations: Record<Locale, Translation> = {
     lang: 'en',
     metaTitle: 'Alvaro Carrizales — Backend Tech Lead | alvarocdev',
     metaDescription:
-      'Backend Tech Lead based in Buenos Aires. I build the Nexo ecosystem: six open-source web tools with no cookies or trackers (Nexo ID, Links, Agenda, Short, Events and Tools).',
+      'Backend Tech Lead based in Buenos Aires. I build web systems and products — from the backend to the infrastructure.',
     nav: { about: 'About', products: 'Ecosystem', work: 'Clients', contact: 'Contact' },
     hero: {
       kicker: 'Backend Tech Lead · Buenos Aires',
@@ -318,7 +318,7 @@ export const translations: Record<Locale, Translation> = {
     lang: 'pt',
     metaTitle: 'Alvaro Carrizales — Backend Tech Lead | alvarocdev',
     metaDescription:
-      'Backend Tech Lead em Buenos Aires. Construo o ecossistema Nexo: seis ferramentas web open source, sem cookies nem trackers (Nexo ID, Links, Agenda, Short, Events e Tools).',
+      'Backend Tech Lead em Buenos Aires. Construo sistemas e produtos web — do backend à infraestrutura.',
     nav: { about: 'Sobre mim', products: 'Ecossistema', work: 'Clientes', contact: 'Contato' },
     hero: {
       kicker: 'Backend Tech Lead · Buenos Aires',
