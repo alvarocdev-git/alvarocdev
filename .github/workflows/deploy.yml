@@ -18,7 +18,15 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run build
+      # Activar el beacon cookieless del ecosistema en el build (M6): estas
+      # PUBLIC_* se leen en build-time (import.meta.env) y hacen que Base.astro
+      # emita el sendBeacon a /admin de nexotools. Respeta Do Not Track y no
+      # manda cookies/IP/UA. El endpoint de ingesta del hub ya está live.
+      - name: Build (beacon del ecosistema activado)
+        run: npm run build
+        env:
+          PUBLIC_NEXO_BEACON_ENABLED: 'true'
+          PUBLIC_NEXO_HUB_URL: 'https://nexotools.alvarocdev.com'
 
       # Credenciales: cuenta FTP dedicada "deploy" creada en hPanel →
       # alvarocdev.com → Cuentas FTP, con directorio fijado al public_html
