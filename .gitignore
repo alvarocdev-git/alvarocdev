@@ -8,3 +8,6 @@ npm-debug.log*
 .env
 .env.local
 .env.*.local
+
+# Briefing personal del agente (rutas locales): nunca se publica.
+/CLAUDE.local.md
