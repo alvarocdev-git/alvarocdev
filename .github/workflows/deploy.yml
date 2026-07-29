@@ -5,8 +5,44 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Un push detrás de otro no puede solapar dos subidas FTP sobre el mismo docroot.
+concurrency:
+  group: production
+  cancel-in-progress: false
+
 jobs:
+  check:
+    name: Checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # `astro check` es el único check mecánico que este sitio puede tener sin
+      # una suite: translations.ts está tipado como Record<Locale, Translation>,
+      # así que un idioma al que le falte una clave rompe acá y no en producción.
+      - name: astro check (tipos + i18n completo)
+        run: npx astro check
+
+      # Informativo, no bloqueante. Los avisos abiertos hoy son de Astro (XSS en
+      # rutas SSR: server islands, view transitions, spread props) y de sharp,
+      # que acá es dependencia de BUILD. Este sitio se prerenderiza a HTML
+      # estático y no despliega servidor, así que ninguno de esos caminos existe
+      # en producción. El fix real es subir a Astro 7 (dos majors) y está en el
+      # BACKLOG con su disparador: no se hace en un deploy automático.
+      - name: Auditoría de dependencias (informativa)
+        continue-on-error: true
+        run: npm audit --audit-level=high
+
   deploy:
+    name: Build & deploy
+    needs: check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -1,6 +1,7 @@
 ---
 import { site, type Locale } from '../i18n/translations';
 
+
 interface Props {
   lang: Locale;
   title: string;
@@ -24,6 +25,36 @@ const ogLocaleAlternates = (Object.keys(ogLocales) as Locale[])
 const beaconEnabled =
   import.meta.env.PUBLIC_NEXO_BEACON_ENABLED === 'true' && !!import.meta.env.PUBLIC_NEXO_HUB_URL;
 const beaconHub = (import.meta.env.PUBLIC_NEXO_HUB_URL ?? '').replace(/\/+$/, '');
+
+// JSON-LD: Person (el sitio ES la persona) + WebSite, enlazados por @id para que
+// se lean como un solo grafo y no como dos entidades sueltas. Es SEO base según
+// how-i-work; sin esto el sitio no declara de quién habla.
+const personId = new URL('#person', Astro.site).toString();
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: 'Alvaro Carrizales',
+      url: new URL('/', Astro.site).toString(),
+      image: ogImage.toString(),
+      jobTitle: 'Backend Tech Lead',
+      email: `mailto:${site.email}`,
+      sameAs: [site.github, site.linkedin, site.nexoGithubOrg],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': new URL('#website', Astro.site).toString(),
+      url: canonical.toString(),
+      name: 'alvarocdev',
+      description,
+      inLanguage: lang,
+      author: { '@id': personId },
+      publisher: { '@id': personId },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -62,6 +93,7 @@ const beaconHub = (import.meta.env.PUBLIC_NEXO_HUB_URL ?? '').replace(/\/+$/, ''
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:image:alt" content="alvarocdev.com — Alvaro Carrizales, Backend Tech Lead en Buenos Aires" />
     <meta name="generator" content={Astro.generator} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <slot />

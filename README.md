@@ -24,16 +24,16 @@ identidad visual ([nexo-brand](https://github.com/nexo-tools)), una cuenta opcio
 ([Nexo ID](https://github.com/nexo-tools/nexo-id), SSO) y un mismo estándar de
 ingeniería. Cada herramienta funciona **de forma independiente** — el ecosistema es opt-in.
 
-| Herramienta | Qué es | Repo |
-| --- | --- | --- |
-| **Nexo Tools** | Hub del ecosistema — descubrí las herramientas y saltá entre ellas con una cuenta | [nexo-tools](https://github.com/nexo-tools/nexo-tools) |
-| **Nexo Links** | Link-in-bio que hospedás vos (alternativa a Linktree) | [nexo-links](https://github.com/nexo-tools/nexo-links) |
-| **Nexo Agenda** | Reservas para negocios de servicios (alternativa a AgendaPro / Fresha / Booksy) | [nexo-agenda](https://github.com/nexo-tools/nexo-agenda) |
-| **Nexo Short** | Acortador de URLs self-hosted | [nexo-short](https://github.com/nexo-tools/nexo-short) |
-| **Nexo Events** | Entradas y pases para eventos | [nexo-events](https://github.com/nexo-tools/nexo-events) |
-| **Nexo ID** | Una cuenta para todas las herramientas — SSO OAuth 2.0 / OIDC | [nexo-id](https://github.com/nexo-tools/nexo-id) |
+| Herramienta | Qué es | En vivo | Repo |
+| --- | --- | --- | --- |
+| **Nexo Tools** | Hub del ecosistema — descubrí las herramientas y saltá entre ellas con una cuenta | [nexotools.alvarocdev.com](https://nexotools.alvarocdev.com) | [nexo-tools](https://github.com/nexo-tools/nexo-tools) |
+| **Nexo ID** | Una cuenta para todas las herramientas — SSO OAuth 2.0 / OIDC | [nexoid.alvarocdev.com](https://nexoid.alvarocdev.com) | [nexo-id](https://github.com/nexo-tools/nexo-id) |
+| **Nexo Links** | Link-in-bio que hospedás vos (alternativa a Linktree) | [nexolinks.alvarocdev.com](https://nexolinks.alvarocdev.com) | [nexo-links](https://github.com/nexo-tools/nexo-links) |
+| **Nexo Agenda** | Reservas para negocios de servicios (alternativa a Fresha / Booksy) | [nexoagenda.alvarocdev.com](https://nexoagenda.alvarocdev.com) | [nexo-agenda](https://github.com/nexo-tools/nexo-agenda) |
+| **Nexo Short** | Acortador de URLs con métricas sin cookies | [nexoshort.alvarocdev.com](https://nexoshort.alvarocdev.com) | [nexo-short](https://github.com/nexo-tools/nexo-short) |
+| **Nexo Events** | Entradas, pases y check-in con QR | [nexoevents.alvarocdev.com](https://nexoevents.alvarocdev.com) | [nexo-events](https://github.com/nexo-tools/nexo-events) |
 
-Portada para conocerlas: **[nexotools.alvarocdev.com](https://nexotools.alvarocdev.com)**.
+Las seis están en vivo. Portada para conocerlas: **[nexotools.alvarocdev.com](https://nexotools.alvarocdev.com)**.
 
 ## Cómo está hecho
 
@@ -74,3 +74,7 @@ y poner `showClientWork = true` en `Home.astro`. Pedir permiso a cada cliente an
 ## Licencia
 
 Código bajo [MIT](LICENSE). Contenido y marca personal © Alvaro Carrizales.
+
+> Este README está en español por decisión explícita: a diferencia de los repos de producto Nexo
+> (open source internacional, en inglés), este es el sitio personal de Alvaro y su audiencia es
+> hispanohablante.
