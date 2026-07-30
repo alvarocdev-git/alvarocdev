@@ -23,6 +23,8 @@ const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome)
 ---
 
 <Base lang={lang} title={t.metaTitle} description={t.metaDescription}>
+  <a class="skip-link" href="#contenido">{t.nav.skip}</a>
+
   <header class="topbar">
     <nav class="container topbar-inner" aria-label="main">
       <a href={site.localePaths[lang]} class="brand">alvarocdev<span class="cursor">_</span></a>
@@ -44,7 +46,7 @@ const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome)
     </nav>
   </header>
 
-  <main class="container">
+  <main class="container" id="contenido">
     <section class="hero">
       <p class="kicker">{t.hero.kicker}</p>
       <h1>{t.hero.title}</h1>
@@ -362,7 +364,8 @@ const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome)
 
   .prose {
     margin-bottom: 1rem;
-    max-width: 40em;
+    /* ~68ch at the body size: 40em ran to ~78ch, past the comfortable ceiling. */
+    max-width: 34em;
   }
 
   .muted {
@@ -422,7 +425,7 @@ const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome)
     background: var(--bg-raise);
     border: 1px solid var(--border);
     border-radius: 10px;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s cubic-bezier(0.2, 0, 0.2, 1);
   }
 
   .card:hover {
@@ -664,7 +667,9 @@ const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome)
     border: 1px solid var(--border);
     border-radius: 8px;
     color: var(--text);
-    transition: border-color 0.2s ease, background 0.2s ease;
+    transition:
+      border-color 0.2s cubic-bezier(0.2, 0, 0.2, 1),
+      background 0.2s cubic-bezier(0.2, 0, 0.2, 1);
   }
 
   .btn:hover {

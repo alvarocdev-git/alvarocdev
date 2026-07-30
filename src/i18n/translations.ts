@@ -37,7 +37,8 @@ export interface Translation {
   lang: string;
   metaTitle: string;
   metaDescription: string;
-  nav: { about: string; products: string; work: string; contact: string };
+  ogImageAlt: string;
+  nav: { about: string; products: string; work: string; contact: string; skip: string };
   hero: {
     kicker: string;
     title: string;
@@ -91,7 +92,8 @@ export const translations: Record<Locale, Translation> = {
     metaTitle: 'Alvaro Carrizales — Backend Tech Lead | alvarocdev',
     metaDescription:
       'Backend Tech Lead en Buenos Aires. Construyo sistemas y productos web — del backend a la infraestructura.',
-    nav: { about: 'Sobre mí', products: 'Ecosistema', work: 'Clientes', contact: 'Contacto' },
+    ogImageAlt: 'alvarocdev.com — Alvaro Carrizales, Backend Tech Lead en Buenos Aires',
+    nav: { about: 'Sobre mí', products: 'Ecosistema', work: 'Clientes', contact: 'Contacto', skip: 'Saltar al contenido' },
     hero: {
       kicker: 'Backend Tech Lead · Buenos Aires',
       title: 'Hola, soy Alvaro Carrizales',
@@ -196,7 +198,7 @@ export const translations: Record<Locale, Translation> = {
     contact: {
       label: 'contacto',
       title: 'Contacto',
-      text: '¿Tienes un proyecto, una idea o simplemente quieres charlar? Escríbeme.',
+      text: '¿Tenés un proyecto, una idea o simplemente querés charlar? Escribime.',
       emailCta: 'Enviar email',
     },
     footer: { madeWith: 'Sin cookies, sin trackers.' },
@@ -207,7 +209,8 @@ export const translations: Record<Locale, Translation> = {
     metaTitle: 'Alvaro Carrizales — Backend Tech Lead | alvarocdev',
     metaDescription:
       'Backend Tech Lead based in Buenos Aires. I build web systems and products — from the backend to the infrastructure.',
-    nav: { about: 'About', products: 'Ecosystem', work: 'Clients', contact: 'Contact' },
+    ogImageAlt: 'alvarocdev.com — Alvaro Carrizales, Backend Tech Lead in Buenos Aires',
+    nav: { about: 'About', products: 'Ecosystem', work: 'Clients', contact: 'Contact', skip: 'Skip to content' },
     hero: {
       kicker: 'Backend Tech Lead · Buenos Aires',
       title: "Hi, I'm Alvaro Carrizales",
@@ -323,7 +326,8 @@ export const translations: Record<Locale, Translation> = {
     metaTitle: 'Alvaro Carrizales — Backend Tech Lead | alvarocdev',
     metaDescription:
       'Backend Tech Lead em Buenos Aires. Construo sistemas e produtos web — do backend à infraestrutura.',
-    nav: { about: 'Sobre mim', products: 'Ecossistema', work: 'Clientes', contact: 'Contato' },
+    ogImageAlt: 'alvarocdev.com — Alvaro Carrizales, Backend Tech Lead em Buenos Aires',
+    nav: { about: 'Sobre mim', products: 'Ecossistema', work: 'Clientes', contact: 'Contato', skip: 'Ir para o conteúdo' },
     hero: {
       kicker: 'Backend Tech Lead · Buenos Aires',
       title: 'Olá, sou Alvaro Carrizales',
