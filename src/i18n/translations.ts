@@ -40,11 +40,17 @@ export interface Translation {
   ogImageAlt: string;
   nav: { about: string; products: string; work: string; contact: string; skip: string };
   hero: {
-    kicker: string;
+    // The hero extends the wordmark's terminal gesture instead of the
+    // kicker + "Hi, I'm" + two-button formula: two prompt lines, their
+    // answers, and a pulse whose number is derived from products.items —
+    // never written here, so it cannot go stale.
+    prompt: string;
+    role: string;
     title: string;
     subtitle: string;
-    ctaProjects: string;
-    ctaContact: string;
+    pulsePrompt: string;
+    pulseBefore: string;
+    pulseAfter: string;
   };
   about: {
     label: string;
@@ -95,12 +101,14 @@ export const translations: Record<Locale, Translation> = {
     ogImageAlt: 'alvarocdev.com — Alvaro Carrizales, Backend Tech Lead en Buenos Aires',
     nav: { about: 'Sobre mí', products: 'Ecosistema', work: 'Clientes', contact: 'Contacto', skip: 'Saltar al contenido' },
     hero: {
-      kicker: 'Backend Tech Lead · Buenos Aires',
-      title: 'Hola, soy Alvaro Carrizales',
+      prompt: 'whoami',
+      role: 'Backend Tech Lead · Buenos Aires',
+      title: 'Construyo sistemas web que se pueden auditar.',
       subtitle:
-        'Construyo sistemas y productos web que resuelven problemas de verdad. Prefiero resolver bien antes que resolver rápido.',
-      ctaProjects: 'Ver el ecosistema',
-      ctaContact: 'Contacto',
+        'Del backend a la infraestructura, y en abierto. Prefiero resolver bien antes que resolver rápido.',
+      pulsePrompt: 'nexo --status',
+      pulseBefore: '',
+      pulseAfter: ' herramientas en vivo, todas open source y sin cookies',
     },
     about: {
       label: 'sobre-mi',
@@ -212,12 +220,14 @@ export const translations: Record<Locale, Translation> = {
     ogImageAlt: 'alvarocdev.com — Alvaro Carrizales, Backend Tech Lead in Buenos Aires',
     nav: { about: 'About', products: 'Ecosystem', work: 'Clients', contact: 'Contact', skip: 'Skip to content' },
     hero: {
-      kicker: 'Backend Tech Lead · Buenos Aires',
-      title: "Hi, I'm Alvaro Carrizales",
+      prompt: 'whoami',
+      role: 'Backend Tech Lead · Buenos Aires',
+      title: 'I build web systems you can audit.',
       subtitle:
-        'I build web systems and products that solve real problems. I would rather solve things well than solve them fast.',
-      ctaProjects: 'See the ecosystem',
-      ctaContact: 'Contact',
+        'From the backend to the infrastructure, and in the open. I would rather solve things well than solve them fast.',
+      pulsePrompt: 'nexo --status',
+      pulseBefore: '',
+      pulseAfter: ' tools live, all open source and cookieless',
     },
     about: {
       label: 'about',
@@ -329,12 +339,14 @@ export const translations: Record<Locale, Translation> = {
     ogImageAlt: 'alvarocdev.com — Alvaro Carrizales, Backend Tech Lead em Buenos Aires',
     nav: { about: 'Sobre mim', products: 'Ecossistema', work: 'Clientes', contact: 'Contato', skip: 'Ir para o conteúdo' },
     hero: {
-      kicker: 'Backend Tech Lead · Buenos Aires',
-      title: 'Olá, sou Alvaro Carrizales',
+      prompt: 'whoami',
+      role: 'Backend Tech Lead · Buenos Aires',
+      title: 'Construo sistemas web que dá para auditar.',
       subtitle:
-        'Construo sistemas e produtos web que resolvem problemas de verdade. Prefiro resolver bem a resolver rápido.',
-      ctaProjects: 'Ver o ecossistema',
-      ctaContact: 'Contato',
+        'Do backend à infraestrutura, e em aberto. Prefiro resolver bem a resolver rápido.',
+      pulsePrompt: 'nexo --status',
+      pulseBefore: '',
+      pulseAfter: ' ferramentas no ar, todas open source e sem cookies',
     },
     about: {
       label: 'sobre-mim',

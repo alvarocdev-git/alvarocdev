@@ -11,6 +11,11 @@ const t = translations[lang];
 const stack = ['PHP', 'Laravel', 'MySQL', 'Docker', 'Kubernetes', 'AWS', 'REST APIs'];
 const year = new Date().getFullYear();
 
+// The hero's one number, derived rather than written: the day a tool flips to
+// 'soon' or a seventh one lands, the pulse follows on its own. A hand-typed
+// count is a claim that goes stale silently.
+const liveTools = t.products.items.filter((item) => item.status === 'live').length;
+
 // Cambiar a true cuando estén listos los casos de estudio de clientes
 // (completar antes los datos en t.work.clients de src/i18n/translations.ts).
 const showClientWork = false;
@@ -47,14 +52,31 @@ const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome)
   </header>
 
   <main class="container" id="contenido">
+    {/*
+      The hero extends the one genuinely terminal gesture this site already
+      has — the wordmark's blinking cursor — instead of the kicker + "Hola,
+      soy" + two-button row every portfolio ships. Two prompts and their
+      answers: who is typing, and what the ecosystem is actually doing right
+      now. No fake window chrome, no JS: the cursor is the CSS animation the
+      wordmark already uses.
+    */}
     <section class="hero">
-      <p class="kicker">{t.hero.kicker}</p>
+      <p class="prompt-line">
+        <span class="prompt-sign" aria-hidden="true">~ $</span> {t.hero.prompt}
+      </p>
+      <p class="prompt-out">{t.hero.role}</p>
+
       <h1>{t.hero.title}</h1>
       <p class="subtitle">{t.hero.subtitle}</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#productos">{t.hero.ctaProjects}</a>
-        <a class="btn" href="#contacto">{t.hero.ctaContact}</a>
-      </div>
+
+      <p class="prompt-line">
+        <span class="prompt-sign" aria-hidden="true">~ $</span> {t.hero.pulsePrompt}<span class="cursor">_</span>
+      </p>
+      <p class="prompt-out pulse">
+        <a href="#productos">
+          <b>{t.hero.pulseBefore}{liveTools}</b>{t.hero.pulseAfter}
+        </a>
+      </p>
     </section>
 
     <section id="sobre-mi">
@@ -328,11 +350,46 @@ const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome)
     padding: 6.5rem 0 3rem;
   }
 
-  .kicker {
+  /* --- hero: the wordmark's terminal gesture, extended ---------------------
+     A prompt line and its answer, twice. Deliberately not a drawn terminal:
+     no window frame, no traffic lights — just the mono face, the accent on
+     the sign, and the same cursor animation the wordmark uses. */
+  .prompt-line {
     font-family: var(--font-mono);
     font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.15rem;
+  }
+
+  .prompt-sign {
     color: var(--accent);
-    margin-bottom: 1rem;
+    user-select: none;
+  }
+
+  .prompt-out {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+
+  .prompt-line + .prompt-out {
+    /* Sits under the command, indented to the width of "~ $ " so the answer
+       reads as output rather than as another line of prose. */
+    padding-left: 2.2ch;
+  }
+
+  .hero .prompt-line:nth-of-type(2) {
+    margin-top: 2.25rem;
+  }
+
+  .pulse b {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .pulse a {
+    color: inherit;
   }
 
   h1 {
