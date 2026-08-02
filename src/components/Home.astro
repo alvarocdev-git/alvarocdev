@@ -344,13 +344,53 @@ const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome)
     }
   }
 
-  /* --- sections --- */
+  /* --- sections ------------------------------------------------------------
+     Uneven on purpose. Every band at 4.5rem read as a template: the page had
+     one rhythm and nothing to say about which part mattered. Now the hero
+     opens with air and closes tight against the first answer, the ecosystem
+     — the centrepiece — gets the widest band, and contact sits close to what
+     precedes it because it is the end of a conversation, not a new topic. */
   section {
     padding: 4.5rem 0 1rem;
   }
 
   .hero {
-    padding: 6.5rem 0 3rem;
+    padding: 6rem 0 1.5rem;
+  }
+
+  #sobre-mi {
+    padding: 3rem 0 1rem;
+  }
+
+  .ecosystem {
+    padding: 5.5rem 0 1.5rem;
+  }
+
+  #clientes {
+    padding: 4rem 0 1rem;
+  }
+
+  #contacto {
+    padding: 3.25rem 0 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 3.5rem 0 1.25rem;
+    }
+
+    #sobre-mi {
+      padding: 2.25rem 0 1rem;
+    }
+
+    .ecosystem {
+      padding: 3.75rem 0 1.25rem;
+    }
+
+    #clientes,
+    #contacto {
+      padding: 2.5rem 0 1rem;
+    }
   }
 
   /* --- hero: the wordmark's terminal gesture, extended ---------------------
