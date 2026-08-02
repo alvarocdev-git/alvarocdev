@@ -4,7 +4,7 @@
 
 **Portafolio técnico de Alvaro Carrizales y la cara pública del ecosistema Nexo.**
 
-Backend Tech Lead · Buenos Aires · construyo productos web que resuelven problemas de verdad.
+Ingeniero de software · Buenos Aires · construyo productos web que resuelven problemas de verdad.
 
 [**alvarocdev.com**](https://alvarocdev.com) · [ecosistema Nexo](https://github.com/nexo-tools)
 
