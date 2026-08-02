@@ -116,9 +116,9 @@ export const translations: Record<Locale, Translation> = {
       label: 'ecosistema',
       title: 'El ecosistema Nexo',
       intro:
-        'Nexo es un ecosistema de herramientas web pequeñas y honestas que construyo en abierto: sin cookies, sin trackers y con una sola cuenta para todas. Seis piezas que resuelven cosas concretas y conversan entre sí.',
+        'Nexo es un ecosistema de herramientas web pequeñas que construyo en abierto: sin cookies, sin trackers y con una sola cuenta para todas. Piezas que resuelven cosas concretas y conversan entre sí.',
       openSource:
-        'Todo es open source y self-hosteable: el software que usás a diario debería poder auditarse y correr en tu propia infraestructura.',
+        'Todo es open source y self-hosteable: el software que usás a diario debería poder leerse por dentro y correr en tu propia infraestructura.',
       statusLive: 'En vivo',
       statusSoon: 'Pronto',
       viewDemo: 'Ver demo',
@@ -165,7 +165,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoshort',
           name: 'Nexo Short',
           description:
-            'Acorta enlaces con métricas sin cookies. Sin trackers y open source: podés auditar a dónde apunta cada link.',
+            'Acorta enlaces con métricas sin cookies. Sin trackers y open source: el código está a la vista y ves a dónde apunta cada link.',
           tags: ['Laravel', 'Cookieless', 'Tailwind'],
           status: 'live',
           demo: 'https://nexoshort.alvarocdev.com',
@@ -229,9 +229,9 @@ export const translations: Record<Locale, Translation> = {
       label: 'ecosystem',
       title: 'The Nexo ecosystem',
       intro:
-        'Nexo is an ecosystem of small, honest web tools I build in the open: no cookies, no trackers, and a single account across all of them. Six pieces that solve concrete problems and talk to each other.',
+        'Nexo is an ecosystem of small web tools I build in the open: no cookies, no trackers, and a single account across all of them. Pieces that solve concrete problems and talk to each other.',
       openSource:
-        "It's all open source and self-hostable: the software you use every day should be auditable and run on your own infrastructure.",
+        "It's all open source and self-hostable: the software you use every day should be readable inside and able to run on your own infrastructure.",
       statusLive: 'Live',
       statusSoon: 'Soon',
       viewDemo: 'View demo',
@@ -278,7 +278,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoshort',
           name: 'Nexo Short',
           description:
-            'Shorten links with cookieless metrics. No trackers and open source, so you can audit where every link points.',
+            'Shorten links with cookieless metrics. No trackers and open source: the code is out in the open and you can see where every link points.',
           tags: ['Laravel', 'Cookieless', 'Tailwind'],
           status: 'live',
           demo: 'https://nexoshort.alvarocdev.com',
@@ -342,9 +342,9 @@ export const translations: Record<Locale, Translation> = {
       label: 'ecossistema',
       title: 'O ecossistema Nexo',
       intro:
-        'Nexo é um ecossistema de ferramentas web pequenas e honestas que eu construo em aberto: sem cookies, sem trackers e com uma só conta para todas. Seis peças que resolvem coisas concretas e conversam entre si.',
+        'Nexo é um ecossistema de ferramentas web pequenas que eu construo em aberto: sem cookies, sem trackers e com uma só conta para todas. Peças que resolvem coisas concretas e conversam entre si.',
       openSource:
-        'Tudo é open source e self-hospedável: o software que você usa todo dia deveria poder ser auditado e rodar na sua própria infraestrutura.',
+        'Tudo é open source e self-hospedável: o software que você usa todo dia deveria poder ser lido por dentro e rodar na sua própria infraestrutura.',
       statusLive: 'No ar',
       statusSoon: 'Em breve',
       viewDemo: 'Ver demo',
@@ -391,7 +391,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoshort',
           name: 'Nexo Short',
           description:
-            'Encurte links com métricas sem cookies. Sem trackers e open source, para você auditar para onde cada link aponta.',
+            'Encurte links com métricas sem cookies. Sem trackers e open source: o código está à vista e você vê para onde cada link aponta.',
           tags: ['Laravel', 'Cookieless', 'Tailwind'],
           status: 'live',
           demo: 'https://nexoshort.alvarocdev.com',
