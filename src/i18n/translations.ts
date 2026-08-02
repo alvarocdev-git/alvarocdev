@@ -41,16 +41,13 @@ export interface Translation {
   nav: { about: string; products: string; work: string; contact: string; skip: string };
   hero: {
     // The hero extends the wordmark's terminal gesture instead of the
-    // kicker + "Hi, I'm" + two-button formula: two prompt lines, their
-    // answers, and a pulse whose number is derived from products.items —
-    // never written here, so it cannot go stale.
+    // kicker + "Hi, I'm" + two-button formula: one prompt — whoami — its
+    // answer, and the claim. The engineer takes the prompt; the ecosystem
+    // speaks for itself further down the page.
     prompt: string;
     role: string;
     title: string;
     subtitle: string;
-    pulsePrompt: string;
-    pulseBefore: string;
-    pulseAfter: string;
   };
   about: {
     title: string;
@@ -99,19 +96,16 @@ export const translations: Record<Locale, Translation> = {
     nav: { about: 'Sobre mí', products: 'Ecosistema', work: 'Clientes', contact: 'Contacto', skip: 'Saltar al contenido' },
     hero: {
       prompt: 'whoami',
-      role: 'Backend Tech Lead · Buenos Aires',
-      title: 'Construyo sistemas web que se pueden auditar.',
+      role: 'Ingeniero de software · Buenos Aires',
+      title: 'Construyo software que aguanta producción.',
       subtitle:
-        'Del backend a la infraestructura, y en abierto. Prefiero resolver bien antes que resolver rápido.',
-      pulsePrompt: 'nexo --status',
-      pulseBefore: '',
-      pulseAfter: ' herramientas en vivo, todas open source y sin cookies',
+        'Ingeniería web del backend a la infraestructura, en abierto. Prefiero resolver bien antes que resolver rápido.',
     },
     about: {
       title: 'Sobre mí',
       paragraphs: [
         'Soy colombiano y vivo en Buenos Aires desde hace varios años. Actualmente soy Tech Lead de backend en House of CB, una marca de moda del Reino Unido con e-commerce global.',
-        'Soy de perfil orquesta: mi base es backend con PHP y Laravel, pero también me muevo con infraestructura, integraciones y todo lo que haga falta para que el producto salga adelante.',
+        'Mi base es backend con PHP y Laravel, y me muevo con la misma soltura por infraestructura, integraciones y lo que haga falta para que el producto salga adelante.',
         'Creo que enseñar es la mejor forma de aprender, y que un problema bien resuelto vale más que diez parches rápidos.',
       ],
       stackLabel: 'Stack habitual',
@@ -215,13 +209,10 @@ export const translations: Record<Locale, Translation> = {
     nav: { about: 'About', products: 'Ecosystem', work: 'Clients', contact: 'Contact', skip: 'Skip to content' },
     hero: {
       prompt: 'whoami',
-      role: 'Backend Tech Lead · Buenos Aires',
-      title: 'I build web systems you can audit.',
+      role: 'Software engineer · Buenos Aires',
+      title: 'I build software that holds up in production.',
       subtitle:
-        'From the backend to the infrastructure, and in the open. I would rather solve things well than solve them fast.',
-      pulsePrompt: 'nexo --status',
-      pulseBefore: '',
-      pulseAfter: ' tools live, all open source and cookieless',
+        "Web engineering from the backend to the infrastructure, in the open. I'd rather solve things well than fast.",
     },
     about: {
       title: 'About me',
@@ -331,13 +322,10 @@ export const translations: Record<Locale, Translation> = {
     nav: { about: 'Sobre mim', products: 'Ecossistema', work: 'Clientes', contact: 'Contato', skip: 'Ir para o conteúdo' },
     hero: {
       prompt: 'whoami',
-      role: 'Backend Tech Lead · Buenos Aires',
-      title: 'Construo sistemas web que dá para auditar.',
+      role: 'Engenheiro de software · Buenos Aires',
+      title: 'Construo software que aguenta produção.',
       subtitle:
-        'Do backend à infraestrutura, e em aberto. Prefiro resolver bem a resolver rápido.',
-      pulsePrompt: 'nexo --status',
-      pulseBefore: '',
-      pulseAfter: ' ferramentas no ar, todas open source e sem cookies',
+        'Engenharia web do backend à infraestrutura, em aberto. Prefiro resolver bem a resolver rápido.',
     },
     about: {
       title: 'Sobre mim',
