@@ -53,7 +53,6 @@ export interface Translation {
     pulseAfter: string;
   };
   about: {
-    label: string;
     title: string;
     paragraphs: string[];
     stackLabel: string;
@@ -73,7 +72,6 @@ export interface Translation {
     items: EcosystemTool[];
   };
   work: {
-    label: string;
     title: string;
     intro: string;
     visitSite: string;
@@ -84,7 +82,6 @@ export interface Translation {
     clients: ClientCase[];
   };
   contact: {
-    label: string;
     title: string;
     text: string;
     emailCta: string;
@@ -111,7 +108,6 @@ export const translations: Record<Locale, Translation> = {
       pulseAfter: ' herramientas en vivo, todas open source y sin cookies',
     },
     about: {
-      label: 'sobre-mi',
       title: 'Sobre mí',
       paragraphs: [
         'Soy colombiano y vivo en Buenos Aires desde hace varios años. Actualmente soy Tech Lead de backend en House of CB, una marca de moda del Reino Unido con e-commerce global.',
@@ -192,7 +188,6 @@ export const translations: Record<Locale, Translation> = {
       ],
     },
     work: {
-      label: 'clientes',
       title: 'Trabajo para clientes',
       intro: 'Proyectos que desarrollé para clientes, con enlace directo a su sitio en producción.',
       visitSite: 'Visitar sitio',
@@ -204,7 +199,6 @@ export const translations: Record<Locale, Translation> = {
       clients: [],
     },
     contact: {
-      label: 'contacto',
       title: 'Contacto',
       text: '¿Tenés un proyecto, una idea o simplemente querés charlar? Escribime.',
       emailCta: 'Enviar email',
@@ -230,7 +224,6 @@ export const translations: Record<Locale, Translation> = {
       pulseAfter: ' tools live, all open source and cookieless',
     },
     about: {
-      label: 'about',
       title: 'About me',
       paragraphs: [
         "I'm Colombian and have been living in Buenos Aires for several years. I currently work as a backend Tech Lead at House of CB, a UK fashion brand with a global e-commerce operation.",
@@ -311,7 +304,6 @@ export const translations: Record<Locale, Translation> = {
       ],
     },
     work: {
-      label: 'clients',
       title: 'Client work',
       intro: 'Projects I built for clients, with a direct link to their live site.',
       visitSite: 'Visit site',
@@ -323,7 +315,6 @@ export const translations: Record<Locale, Translation> = {
       clients: [],
     },
     contact: {
-      label: 'contact',
       title: 'Contact',
       text: 'Got a project, an idea, or just want to chat? Drop me a line.',
       emailCta: 'Send email',
@@ -349,7 +340,6 @@ export const translations: Record<Locale, Translation> = {
       pulseAfter: ' ferramentas no ar, todas open source e sem cookies',
     },
     about: {
-      label: 'sobre-mim',
       title: 'Sobre mim',
       paragraphs: [
         'Sou colombiano e moro em Buenos Aires há vários anos. Atualmente sou Tech Lead de backend na House of CB, uma marca de moda do Reino Unido com e-commerce global.',
@@ -430,7 +420,6 @@ export const translations: Record<Locale, Translation> = {
       ],
     },
     work: {
-      label: 'clientes',
       title: 'Trabalho para clientes',
       intro: 'Projetos que desenvolvi para clientes, com link direto para o site em produção.',
       visitSite: 'Visitar site',
@@ -442,7 +431,6 @@ export const translations: Record<Locale, Translation> = {
       clients: [],
     },
     contact: {
-      label: 'contato',
       title: 'Contato',
       text: 'Tem um projeto, uma ideia ou só quer conversar? Me escreva.',
       emailCta: 'Enviar email',

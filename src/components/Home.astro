@@ -80,7 +80,6 @@ const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome)
     </section>
 
     <section id="sobre-mi">
-      <p class="section-label">// {t.about.label}</p>
       <h2>{t.about.title}</h2>
       {t.about.paragraphs.map((p) => <p class="prose">{p}</p>)}
       <div class="facts">
@@ -97,6 +96,12 @@ const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome)
       </div>
     </section>
 
+    {/*
+      The one eyebrow left on the page. It stays because it is the only one
+      that says something the h2 does not: rendered in --eco, it is where the
+      personal green hands over to the ecosystem's violet. The other three
+      repeated their own heading in mono and were pure rhythm.
+    */}
     <section id="productos" class="ecosystem">
       <p class="section-label">// {t.products.label}</p>
       <h2>{t.products.title}</h2>
@@ -153,7 +158,6 @@ const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome)
 
     {showClientWork && (
     <section id="clientes">
-      <p class="section-label">// {t.work.label}</p>
       <h2>{t.work.title}</h2>
       <p class="prose muted">{t.work.intro}</p>
 
@@ -218,7 +222,6 @@ const hasCaseStudies = clients.some((c) => c.problem || c.solution || c.outcome)
     )}
 
     <section id="contacto">
-      <p class="section-label">// {t.contact.label}</p>
       <h2>{t.contact.title}</h2>
       <p class="prose">{t.contact.text}</p>
       <div class="cta-row">
