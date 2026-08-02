@@ -89,10 +89,10 @@ export interface Translation {
 export const translations: Record<Locale, Translation> = {
   es: {
     lang: 'es',
-    metaTitle: 'Alvaro Carrizales — Backend Tech Lead | alvarocdev',
+    metaTitle: 'Alvaro Carrizales — Ingeniero de software | alvarocdev',
     metaDescription:
-      'Backend Tech Lead en Buenos Aires. Construyo sistemas y productos web — del backend a la infraestructura.',
-    ogImageAlt: 'alvarocdev.com — Alvaro Carrizales, Backend Tech Lead en Buenos Aires',
+      'Ingeniero de software en Buenos Aires. Construyo sistemas y productos web — del backend a la infraestructura.',
+    ogImageAlt: 'alvarocdev.com — Alvaro Carrizales, ingeniero de software en Buenos Aires',
     nav: { about: 'Sobre mí', products: 'Ecosistema', work: 'Clientes', contact: 'Contacto', skip: 'Saltar al contenido' },
     hero: {
       prompt: 'whoami',
@@ -202,10 +202,10 @@ export const translations: Record<Locale, Translation> = {
 
   en: {
     lang: 'en',
-    metaTitle: 'Alvaro Carrizales — Backend Tech Lead | alvarocdev',
+    metaTitle: 'Alvaro Carrizales — Software engineer | alvarocdev',
     metaDescription:
-      'Backend Tech Lead based in Buenos Aires. I build web systems and products — from the backend to the infrastructure.',
-    ogImageAlt: 'alvarocdev.com — Alvaro Carrizales, Backend Tech Lead in Buenos Aires',
+      'Software engineer based in Buenos Aires. I build web systems and products — from the backend to the infrastructure.',
+    ogImageAlt: 'alvarocdev.com — Alvaro Carrizales, software engineer in Buenos Aires',
     nav: { about: 'About', products: 'Ecosystem', work: 'Clients', contact: 'Contact', skip: 'Skip to content' },
     hero: {
       prompt: 'whoami',
@@ -315,10 +315,10 @@ export const translations: Record<Locale, Translation> = {
 
   pt: {
     lang: 'pt',
-    metaTitle: 'Alvaro Carrizales — Backend Tech Lead | alvarocdev',
+    metaTitle: 'Alvaro Carrizales — Engenheiro de software | alvarocdev',
     metaDescription:
-      'Backend Tech Lead em Buenos Aires. Construo sistemas e produtos web — do backend à infraestrutura.',
-    ogImageAlt: 'alvarocdev.com — Alvaro Carrizales, Backend Tech Lead em Buenos Aires',
+      'Engenheiro de software em Buenos Aires. Construo sistemas e produtos web — do backend à infraestrutura.',
+    ogImageAlt: 'alvarocdev.com — Alvaro Carrizales, engenheiro de software em Buenos Aires',
     nav: { about: 'Sobre mim', products: 'Ecossistema', work: 'Clientes', contact: 'Contato', skip: 'Ir para o conteúdo' },
     hero: {
       prompt: 'whoami',
