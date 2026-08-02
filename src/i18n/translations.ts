@@ -131,7 +131,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexotools',
           name: 'Nexo Tools',
           description:
-            'El hub abierto del ecosistema: desde acá lanzás y administrás todas tus herramientas Nexo. Es open source para que cualquiera pueda self-hostear su propio panel.',
+            'El hub abierto del ecosistema Nexo. Desde acá lanzás y administrás todas tus herramientas, y es open source para que cualquiera pueda self-hostear su propio panel.',
           tags: ['Laravel', 'Blade + Alpine', 'Cookieless'],
           status: 'live',
           demo: 'https://nexotools.alvarocdev.com',
@@ -140,7 +140,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoid',
           name: 'Nexo ID',
           description:
-            'Inicio de sesión único (OpenID Connect) para todo el ecosistema: una sola cuenta para todas las tools. Abierto porque tu identidad no debería depender de un tercero cerrado.',
+            'Una sola cuenta para todo el ecosistema Nexo. Inicio de sesión único con OpenID Connect, abierto porque tu identidad no debería depender de un tercero cerrado.',
           tags: ['Laravel', 'OpenID Connect', 'Passport'],
           status: 'live',
           demo: 'https://nexoid.alvarocdev.com',
@@ -149,7 +149,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexolinks',
           name: 'Nexo Links',
           description:
-            'Tu link-in-bio con tu dominio y métricas sin cookies. Open source y self-hosteable: tus enlaces y tus datos son tuyos.',
+            'Comparte todos tus links en un solo lugar. Con tu dominio y métricas sin cookies: open source y self-hosteable, así tus enlaces y tus datos siguen siendo tuyos.',
           tags: ['Laravel', 'Tailwind', 'Cookieless'],
           status: 'live',
           demo: 'https://nexolinks.alvarocdev.com',
@@ -158,7 +158,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoagenda',
           name: 'Nexo Agenda',
           description:
-            'Recibí reservas para tu negocio en minutos, sin comisiones. Abierto para que puedas correrlo en tu propia infraestructura.',
+            'Recibe reservas para tu negocio en minutos. Sin comisiones, y abierto para que puedas correrlo en tu propia infraestructura.',
           tags: ['Laravel', 'Blade + Alpine', 'Tailwind'],
           status: 'live',
           demo: 'https://nexoagenda.alvarocdev.com',
@@ -167,7 +167,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoshort',
           name: 'Nexo Short',
           description:
-            'Acortador de enlaces con métricas sin cookies ni trackers. Open source para que puedas auditar a dónde apunta cada link.',
+            'Acorta enlaces con métricas sin cookies. Sin trackers y open source: podés auditar a dónde apunta cada link.',
           tags: ['Laravel', 'Cookieless', 'Tailwind'],
           status: 'live',
           demo: 'https://nexoshort.alvarocdev.com',
@@ -176,7 +176,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoevents',
           name: 'Nexo Events',
           description:
-            'Creá eventos gratis y validá entradas con QR desde el móvil. Abierto para que la gestión de tus entradas no viva en una caja negra.',
+            'Crea eventos gratis y valida entradas con QR. Validás desde el móvil, y es abierto para que la gestión de tus entradas no viva en una caja negra.',
           tags: ['Laravel', 'QR', 'Tailwind'],
           status: 'live',
           demo: 'https://nexoevents.alvarocdev.com',
@@ -248,7 +248,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexotools',
           name: 'Nexo Tools',
           description:
-            'The open hub of the ecosystem: launch and manage all your Nexo tools from one place. Open source so anyone can self-host their own dashboard.',
+            'The open hub of the Nexo ecosystem. Launch and manage every Nexo tool from one place — open source, so anyone can self-host their own dashboard.',
           tags: ['Laravel', 'Blade + Alpine', 'Cookieless'],
           status: 'live',
           demo: 'https://nexotools.alvarocdev.com',
@@ -257,7 +257,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoid',
           name: 'Nexo ID',
           description:
-            "Single sign-on (OpenID Connect) across the whole ecosystem: one account for every tool. Open because your identity shouldn't depend on a closed third party.",
+            "One account for the whole Nexo ecosystem. Single sign-on over OpenID Connect, open because your identity shouldn't depend on a closed third party.",
           tags: ['Laravel', 'OpenID Connect', 'Passport'],
           status: 'live',
           demo: 'https://nexoid.alvarocdev.com',
@@ -266,7 +266,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexolinks',
           name: 'Nexo Links',
           description:
-            'Your link-in-bio on your own domain, with cookieless analytics. Open source and self-hostable: your links and your data stay yours.',
+            'Share all your links in one place. On your own domain and with cookieless analytics — open source and self-hostable, so your links and your data stay yours.',
           tags: ['Laravel', 'Tailwind', 'Cookieless'],
           status: 'live',
           demo: 'https://nexolinks.alvarocdev.com',
@@ -275,7 +275,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoagenda',
           name: 'Nexo Agenda',
           description:
-            'Take bookings for your business in minutes, with no commissions. Open so you can run it on your own infrastructure.',
+            'Take bookings for your business in minutes. No commissions, and open so you can run it on your own infrastructure.',
           tags: ['Laravel', 'Blade + Alpine', 'Tailwind'],
           status: 'live',
           demo: 'https://nexoagenda.alvarocdev.com',
@@ -284,7 +284,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoshort',
           name: 'Nexo Short',
           description:
-            'A link shortener with cookieless, tracker-free metrics. Open source so you can audit where every link points.',
+            'Shorten links with cookieless metrics. No trackers and open source, so you can audit where every link points.',
           tags: ['Laravel', 'Cookieless', 'Tailwind'],
           status: 'live',
           demo: 'https://nexoshort.alvarocdev.com',
@@ -293,7 +293,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoevents',
           name: 'Nexo Events',
           description:
-            'Create events for free and validate tickets by QR from your phone. Open so your ticketing never lives in a black box.',
+            'Create free events and validate tickets with QR. Validation happens from your phone, and it is open so your ticketing never lives in a black box.',
           tags: ['Laravel', 'QR', 'Tailwind'],
           status: 'live',
           demo: 'https://nexoevents.alvarocdev.com',
@@ -365,7 +365,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexotools',
           name: 'Nexo Tools',
           description:
-            'O hub aberto do ecossistema: lance e administre todas as suas ferramentas Nexo em um só lugar. Open source para que qualquer um possa self-hospedar o próprio painel.',
+            'O hub aberto do ecossistema Nexo. Lance e administre todas as suas ferramentas em um só lugar — open source, para que qualquer um possa self-hospedar o próprio painel.',
           tags: ['Laravel', 'Blade + Alpine', 'Cookieless'],
           status: 'live',
           demo: 'https://nexotools.alvarocdev.com',
@@ -374,7 +374,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoid',
           name: 'Nexo ID',
           description:
-            'Login único (OpenID Connect) para todo o ecossistema: uma só conta para todas as ferramentas. Aberto porque a sua identidade não deveria depender de um terceiro fechado.',
+            'Uma só conta para todo o ecossistema Nexo. Login único com OpenID Connect, aberto porque a sua identidade não deveria depender de um terceiro fechado.',
           tags: ['Laravel', 'OpenID Connect', 'Passport'],
           status: 'live',
           demo: 'https://nexoid.alvarocdev.com',
@@ -383,7 +383,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexolinks',
           name: 'Nexo Links',
           description:
-            'Seu link-in-bio no seu domínio, com métricas sem cookies. Open source e self-hospedável: seus links e seus dados continuam seus.',
+            'Compartilhe todos os seus links em um só lugar. No seu domínio e com métricas sem cookies — open source e self-hospedável, seus links e seus dados continuam seus.',
           tags: ['Laravel', 'Tailwind', 'Cookieless'],
           status: 'live',
           demo: 'https://nexolinks.alvarocdev.com',
@@ -392,7 +392,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoagenda',
           name: 'Nexo Agenda',
           description:
-            'Receba reservas para o seu negócio em minutos, sem comissões. Aberto para você rodar na sua própria infraestrutura.',
+            'Receba reservas para o seu negócio em minutos. Sem comissões, e aberto para você rodar na sua própria infraestrutura.',
           tags: ['Laravel', 'Blade + Alpine', 'Tailwind'],
           status: 'live',
           demo: 'https://nexoagenda.alvarocdev.com',
@@ -401,7 +401,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoshort',
           name: 'Nexo Short',
           description:
-            'Encurtador de links com métricas sem cookies nem trackers. Open source para você auditar para onde cada link aponta.',
+            'Encurte links com métricas sem cookies. Sem trackers e open source, para você auditar para onde cada link aponta.',
           tags: ['Laravel', 'Cookieless', 'Tailwind'],
           status: 'live',
           demo: 'https://nexoshort.alvarocdev.com',
@@ -410,7 +410,7 @@ export const translations: Record<Locale, Translation> = {
           key: 'nexoevents',
           name: 'Nexo Events',
           description:
-            'Crie eventos de graça e valide ingressos por QR pelo celular. Aberto para que a gestão dos seus ingressos nunca fique em uma caixa preta.',
+            'Crie eventos grátis e valide ingressos com QR. A validação é pelo celular, e é aberto para que a gestão dos seus ingressos nunca fique em uma caixa preta.',
           tags: ['Laravel', 'QR', 'Tailwind'],
           status: 'live',
           demo: 'https://nexoevents.alvarocdev.com',
